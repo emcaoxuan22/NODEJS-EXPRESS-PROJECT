@@ -17,7 +17,16 @@ Content-Type: application/json
 
 {
     "email" : "longcv06@gmail.com",
-    "password": "123465"
+    "password": "1234651"
 }
+
+###
+GET  http://localhost:3000/user/getlist
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTAzMTYxNTg1ODQzY2Y2Y2UxZDBmNzgiLCJpYXQiOjE2OTQdfd3MDk3MjUsImV4cCI6MTY5NDcxMzMyNX0.13fUbd7fcLogYjFK_MMjvjKMFkKSFZsnHSlyRhpNJ60"
 ###
 POST  http://localhost:3000/user/logout
+
+
+
+
+
