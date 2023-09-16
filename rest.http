@@ -5,24 +5,25 @@ POST  http://localhost:3000/user/register
 Content-Type: application/json
 
 {
-    "email" : "longcv06@gmail.com",
+    "email" : "londgdd4d6v0f6@gmail.com",
     "password": "1234651"
 }
 
 ###
 POST  http://localhost:3000/user/refresh-token
+Authorization: Bearer eyJhbGcdiOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTAzNGRmNWQzOWRmY2FhOTA2OWNiZmMiLCJpYXQiOjE2OTQ4MDExNjcsImV4cCI6MTcyNjM1ODc2N30.VypaLlO8o3SjHpRc8ve_LlFdjXJjK60nCtFWEmaOXKo
 ###
 POST  http://localhost:3000/user/login
 Content-Type: application/json
 
 {
-    "email" : "longcv06@gmail.com",
+    "email" : "londgdd4d6v0f6@gmail.com",
     "password": "1234651"
 }
 
 ###
 GET  http://localhost:3000/user/getlist
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTAzMTYxNTg1ODQzY2Y2Y2UxZDBmNzgiLCJpYXQiOjE2OTQdfd3MDk3MjUsImV4cCI6MTY5NDcxMzMyNX0.13fUbd7fcLogYjFK_MMjvjKMFkKSFZsnHSlyRhpNJ60"
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTAzNGRmNWQzOWRmY2FhOTA2OWNiZmMiLCJpYXQiOjE2OTQ4MDE3MDcsImV4cCI6MTY5NDgwNTMwN30.e-aXYE0HlHcHwTPNmrmA_EKlNoRh-Dv9QrjmvVv7s-w
 ###
 POST  http://localhost:3000/user/logout
 

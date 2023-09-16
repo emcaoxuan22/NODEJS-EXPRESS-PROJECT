@@ -7,6 +7,8 @@ const { userValidate } = require("../helpers/validation");
 const {
   signAccessToken,
   veryfiAccessToken,
+  signRefreshToken,
+  veryfiRefreshToken,
 } = require("../helpers/jwt_services");
 
 route.post("/register", async (req, res, next) => {
@@ -34,8 +36,14 @@ route.post("/register", async (req, res, next) => {
   }
 });
 
-route.post("/refresh-token", (req, res) => {
-  res.send("funtion-refresh-token");
+route.post("/refresh-token", veryfiRefreshToken,async (req, res) => {
+  try {
+    const newAccessToken = await signAccessToken(req.payload.userId);
+    res.json(newAccessToken) 
+  } catch (error) {
+    next(error)
+  }
+  
 });
 
 route.post("/login", async (req, res, next) => {
@@ -45,19 +53,19 @@ route.post("/login", async (req, res, next) => {
     if (error) {
       throw createHttpError(error.details[0].message);
     }
-
     const user = await User.findOne({ username: email });
     if (!user) {
       throw createHttpError.NotFound("user not exits");
     }
 
     const isValid = await user.isCheckPassword(password);
-    console.log(isValid);
     if (!isValid) {
       throw createHttpError.Unauthorized();
     }
     const accessToken = await signAccessToken(user._id);
-    res.json(accessToken);
+    const refreshToken = await signRefreshToken(user._id);
+    
+    res.json({accessToken, refreshToken});
   } catch (error) {
     next(error);
   }
@@ -72,7 +80,7 @@ route.get("/getlist", veryfiAccessToken, (req, res, next) => {
     user1: "longcv@gmail.com",
     user2: "hiencv@gmail.com",
   };
-  console.log(req.payload);
+  console.log(req.payload);   
   res.json(userList);
 });
 module.exports = route;

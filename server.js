@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const createError = require("http-errors");
+const redis = require("./helpers/connections_redis")
 
 const routerUser = require("./Routes/User.route");
 require("dotenv").config();
@@ -17,7 +18,6 @@ app.get("/", (req, res) => {
 app.use("/user", routerUser);
 
 app.use((error, req, res, next) => {
-  console.log("nhay vao day", error);
   res.json({
     message: error.message,
     status: error.status,
